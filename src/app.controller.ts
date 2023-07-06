@@ -14,9 +14,12 @@ export class AppController {
   // @Render('index')
   async getHello(@Req() req: Request) {
     let path = req.path;
+    console.log(path);
     const response = await this.httpService.axiosRef.get("https://thaihd24h.com" + path);
-    let html = response.data;
-    return html;
+    const html = parse(response.data);
+
+    console.log(html.tagName);
+    return html.toString();
   }
 
 }

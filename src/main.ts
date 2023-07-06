@@ -10,5 +10,7 @@ async function bootstrap() {
   app.setViewEngine('hbs');
 
   await app.listen(3000);
+
+  console.log("start at: " + 3000);
 }
 bootstrap();
