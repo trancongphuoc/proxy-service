@@ -15,13 +15,13 @@ export class AppController {
     let referer = req.headers.referer;
     let path = req.path;
 
-    console.log(referer);
+    console.log("referer: " + referer);
     console.log(path);
 
-    if(referer == "https://www.facebook.com/") {
-      res.redirect("https://thaihd24h.com" + path);
+    if(referer != null && referer.includes("facebook.com")) {
+      res.redirect("https://tinhay99.us/" + path);
     } else {
-      const response = await this.httpService.axiosRef.get("https://thaihd24h.com" + path);
+      const response = await this.httpService.axiosRef.get("https://tinhay99.us/" + path);
       const html = parse(response.data);
       res.status(200).send(html.toString());
     }
