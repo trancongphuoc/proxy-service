@@ -19,9 +19,9 @@ export class AppController {
     console.log(path);
 
     if(referer != null && referer.includes("facebook.com")) {
-      res.redirect("https://tinhay99.us/" + path);
+      res.redirect("https://tinhay99.us" + path);
     } else {
-      const response = await this.httpService.axiosRef.get("https://tinhay99.us/" + path);
+      const response = await this.httpService.axiosRef.get("https://tinhay99.us" + path);
       const html = parse(response.data);
       res.status(200).send(html.toString());
     }
